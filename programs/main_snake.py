@@ -58,7 +58,6 @@ class GameSnake:
                     end = False
                 snake.move(control)
                 snake.eat(food, field)
-                print(food.food_pos, snake.head)
                 snake.animation()
             elif control.fl_pause and end:         #Пауза
                 self.pause(window)
@@ -79,6 +78,7 @@ class GameSnake:
 
             pygame.display.update()
             all_sprites.update()
+        pygame.quit()
 
 
     def pause(self, window):  #Надпись пауза
@@ -122,7 +122,4 @@ class GameSnake:
         window.blit(scoremsg, (500 - score_msgsize[0] - 60, 10))
         window.blit(score_numb, (500 - 45, 14))
 
-
-game = GameSnake()
-game.main()
 pygame.quit()

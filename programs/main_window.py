@@ -27,9 +27,6 @@ class Ui_MainWindow(object):
         self.pushButton_3 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_3.setObjectName("pushButton_3")
         self.verticalLayout.addWidget(self.pushButton_3)
-        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout.addWidget(self.pushButton)
         self.pushButton_4 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_4.setObjectName("pushButton_4")
         self.verticalLayout.addWidget(self.pushButton_4)
@@ -53,7 +50,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton_2.setText(_translate("MainWindow", "Змейка"))
         self.pushButton_3.setText(_translate("MainWindow", "Реакция"))
-        self.pushButton.setText(_translate("MainWindow", "Рисование"))
         self.pushButton_4.setText(_translate("MainWindow", "Помощь"))
-        self.label.setText(_translate("MainWindow", "Добро пожаловать! Выберете игру"))
+        self.label.setText(_translate("MainWindow", "Добро пожаловать! Выберите игру"))
 
