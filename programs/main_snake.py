@@ -27,7 +27,6 @@ class GameSnake:
                 y += 10
             y = 5
             x += 10
-        print(field)
 
         window = pygame.display.set_mode((500, 500))  # Экран
         pygame.display.set_caption('Змейка')
@@ -37,6 +36,9 @@ class GameSnake:
         snake = Snake()
         food = Food()
         food.get_food_pos(field)
+
+        sound1 = pygame.mixer.Sound('music\punch.wav')
+        sound2 = pygame.mixer.Sound('music\st.wav')
 
         var_speed = 0
         end = True
@@ -61,10 +63,10 @@ class GameSnake:
             elif control.fl_pause and end:         #Пауза
                 self.pause(window)
             elif not end and snake.score != 4:                          #Проигрыш
-                self.bad_end(window)
+                self.bad_end(window, sound1)
             elif snake.score == 4:               #Победа
                 end = False
-                self.good_end(window, field)
+                self.good_end(window, field, sound2)
 
             var_speed += 1
 
@@ -84,19 +86,22 @@ class GameSnake:
         string = pausefont.render("Pause", 0, (255, 0, 0))
         window.blit(string, (200, 220))
 
-    def bad_end(self, window):
+    def bad_end(self, window, sound1):
         pausefont = pygame.font.SysFont('test_sans', 50)
         string1 = pausefont.render("You lose!", 0, (255, 0, 0))
         string2 = pausefont.render("New game? Y/N", 0, (255, 0, 0))
         window.blit(string1, (180, 200))
         window.blit(string2, (140, 260))
+        sound1.play()
 
-    def good_end(self, window, field):
+
+    def good_end(self, window, field, sound2):
         pausefont = pygame.font.SysFont('test_sans', 50)
         string1 = pausefont.render("You win!", 0, (255, 0, 0))
         string2 = pausefont.render("New game? Y/N", 0, (255, 0, 0))
         window.blit(string1, (180, 200))
         window.blit(string2, (140, 260))
+        sound2.play()
 
     def drawTime(self, gameTime, window):
         scorefont = pygame.font.Font(None, 40)
