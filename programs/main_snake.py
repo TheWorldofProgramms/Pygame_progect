@@ -3,7 +3,6 @@ from control_snake import Control
 from snake import Snake
 from food import Food
 from end_game import EndGame
-from particles import Particle
 
 random.seed()
 pygame.init()
@@ -96,17 +95,8 @@ class GameSnake:
         pausefont = pygame.font.SysFont('test_sans', 50)
         string1 = pausefont.render("You win!", 0, (255, 0, 0))
         string2 = pausefont.render("New game? Y/N", 0, (255, 0, 0))
-        self.create_particles(random.choice(field))
         window.blit(string1, (180, 200))
         window.blit(string2, (140, 260))
-
-    def create_particles(self, position):
-        # количество создаваемых частиц
-        particle_count = 20
-        # возможные скорости
-        numbers = range(-5, 6)
-        for _ in range(particle_count):
-            Particle(position, random.choice(numbers), random.choice(numbers), all_sprites)
 
     def drawTime(self, gameTime, window):
         scorefont = pygame.font.Font(None, 40)

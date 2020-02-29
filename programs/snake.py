@@ -1,4 +1,4 @@
-import pygame
+import pygame, os
 
 class Snake:
     def __init__(self):
@@ -34,9 +34,11 @@ class Snake:
 
     def draw_snake(self, window):
         #Прорисовка змеи
+        fullname = os.path.join('images', 'Большая змея.jpg')
+        image = pygame.image.load(fullname).convert()
+
         for segment in self.body:
-            pygame.draw.rect(window, pygame.Color("Green"),
-                         pygame.Rect(segment[0], segment[1], 9, 9))
+            window.blit(image, (segment[0], segment[1]))
 
     def eat(self, food, field):    #Поглощение еды
         if self.head == food.food_pos:
